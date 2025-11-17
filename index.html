@@ -1,31 +1,24 @@
-    <!-- Link a youtube: https://youtu.be/2ArDWZBzM2E -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Café Olimpo - Aventura Visual</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Zeus Ratón</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Contenedor para los botones sobre el canvas */
+  #button-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 640px;
+    height: 480px;
+    pointer-events: none; /* desactiva clicks en fondo, se activan solo los botones */
+  }
+</style>
 </head>
 <body>
-  <div id="game">
-    <div id="choices"></div>
-    <div id="scene">
-      <img id="background" src="img/inicio.png" alt="Escena">
-    </div>
-    <div id="text-box">
-      <p id="story-text"></p>
-    </div>
-
-    <!-- Botón de música -->
-    <button id="music-btn">🎵</button>
-    <audio id="bg-music" src="music/beneaththemask.mp3" loop></audio>
-
-    <!-- Botón de créditos -->
-    <button id="credits-btn">👤</button>
-  </div>
-
+  <canvas id="gameCanvas" width="640" height="480"></canvas>
+  <div id="button-container"></div>
   <script src="script.js"></script>
 </body>
 </html>
-
