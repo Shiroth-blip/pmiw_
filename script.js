@@ -1,3 +1,5 @@
+ // Link a youtube: https://youtu.be/OkK5P78m8Xg
+
 const story = {
   start: {
     text: "Te llamás Lyra, barista del Café Olimpo. Hoy llegan clientes divinos... literalmente.",
@@ -148,3 +150,4 @@ document.getElementById("back-btn").onclick = () => {
   creditsScreen.style.display = "none";
   showScene("start");
 };
+
