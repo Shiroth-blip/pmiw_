@@ -15,7 +15,6 @@ canvas {
   display: block;
 }
 
-/* Cuadro de diálogo estilo novela visual */
 .dialogue-box {
   position: absolute;
   bottom: 20px;
@@ -31,20 +30,21 @@ canvas {
   line-height: 1.4;
 }
 
-/* Botones para continuar o avanzar entre secciones */
+/* Botones  */
 .dialogue-button {
   display: inline-block;
   margin-top: 10px;
   padding: 8px 16px;
-  background: orange;       /* color naranja */
+  background: orange;      
   color: black;
   font-weight: bold;
-  border-radius: 15px;      /* más redondeado */
+  border-radius: 15px;      /* para redondear */
   cursor: pointer;
   border: none;
   text-align: center;
 }
 
 .dialogue-button:hover {
-  background: #ffb347;      /* naranja más claro al pasar el mouse */
+  background: #ffb347;      
 }
+
