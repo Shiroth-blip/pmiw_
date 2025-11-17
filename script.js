@@ -1,7 +1,8 @@
+// Link a youtube: https://youtu.be/OkK5P78m8Xg
 let canvas, ctx;
 let game;
 
-// ----------------- Variables -----------------
+// Variables
 const STATE_MENU = 0;
 const STATE_STORY1 = 1;
 const STATE_STORY2 = 2;
@@ -15,7 +16,7 @@ let musicOn = false;
 let bgm = new Audio("musica/Life Will Change -instrumental version-.mp3");
 bgm.loop = true;
 
-// ----------------- Imagenes  -----------------
+// Imagenes  
 const bgMenu = new Image();
 bgMenu.src = "img/img1.png";  
 let menuLoaded = false;
@@ -77,12 +78,12 @@ function loop() {
   requestAnimationFrame(loop);
 }
 
-// ----------------- CLICK -----------------
+//  CLICK 
 function handleClick(e) {
   const x = e.offsetX;
   const y = e.offsetY;
 
-  // ----------------- MENÚ -----------------
+  // MENÚ 
   if (gameState === STATE_MENU) {
     if (x > 230 && x < 410) {
       if (y > 200 && y < 245) gameState = STATE_STORY1; 
@@ -97,19 +98,19 @@ function handleClick(e) {
     return;
   }
 
-  // ----------------- HISTORIA 1 -----------------
+  //  HISTORIA 1
   if (gameState === STATE_STORY1) {
     if (x > 330 && x < 450 && y > 405 && y < 440) gameState = STATE_STORY2;
     return;
   }
 
-  // ----------------- HISTORIA 2 -----------------
+  // HISTORIA 2 
   if (gameState === STATE_STORY2) {
     if (x > 230 && x < 350 && y > 405 && y < 440) gameState = STATE_PLAYING;
     return;
   }
 
-  // ----------------- TUTORIAL -----------------
+  //Tutorial
   if (gameState === STATE_TUTORIAL) {
     if (x > 230 && x < 410 && y > 400 && y < 445) {
       gameState = STATE_MENU;
@@ -117,7 +118,7 @@ function handleClick(e) {
     }
   }
 
-  // ----------------- CRÉDITOS -----------------
+  // Creditos
   if (gameState === STATE_CREDITS) {
     if (x > 230 && x < 410 && y > 400 && y < 445) {
       gameState = STATE_MENU;
@@ -125,7 +126,7 @@ function handleClick(e) {
     }
   }
 
-  // ----------------- Victoria  -----------------
+  // Victoria
   if (gameState === STATE_VICTORY) {
     if (x > 230 && x < 350 && y > 405 && y < 440) {
       gameState = STATE_MENU; 
@@ -134,7 +135,7 @@ function handleClick(e) {
   }
 }
 
-// ----------------- Classes -----------------
+//  Classes 
 class Game {
   constructor() {
     this.reset();
@@ -205,7 +206,7 @@ class Game {
       return;
     }
 
-    // ------------------ Pantalla 1 ------------------
+    // Pantalla 1 
     if (gameState === STATE_STORY1) {
       if (historia1Loaded) ctx.drawImage(bgHistoria1, 0, 0, 640, 480);
 
@@ -220,7 +221,7 @@ class Game {
       return;
     }
 
-    // ------------------ Pantalla 2 ------------------
+    // Pantalla 2
     if (gameState === STATE_STORY2) {
       if (historia2Loaded) ctx.drawImage(bgHistoria2, 0, 0, 640, 480);
 
@@ -236,7 +237,7 @@ class Game {
       return;
     }
 
-    // ------------------ Tutorial pantalla ------------------
+    //Tutorial pantalla
     if (gameState === STATE_TUTORIAL) {
       if (menuLoaded) ctx.drawImage(bgMenu, 0, 0, 640, 480);
 
@@ -255,7 +256,7 @@ class Game {
       return;
     }
 
-    // ------------------ Pantalla de creditos ------------------
+    // Pantalla de creditos
     if (gameState === STATE_CREDITS) {
       if (menuLoaded) ctx.drawImage(bgMenu, 0, 0, 640, 480);
 
@@ -272,7 +273,7 @@ class Game {
       return;
     }
 
-    // ------------------ Juego ------------------
+    //  Juego 
     if (gameState === STATE_PLAYING) {
       if (floorLoaded) ctx.drawImage(floorImg, 0, 0, 640, 480);
 
@@ -287,7 +288,7 @@ class Game {
       if (this.gameOver) this.drawEndScreen("PERDISTE - R para reiniciar");
     }
 
-    // ------------------ Victoria  ------------------
+    // Victoria  
     if (gameState === STATE_VICTORY) {
       if (bgVictoryLoaded) ctx.drawImage(bgVictory, 0, 0, 640, 480);
 
@@ -345,7 +346,7 @@ function drawRoundedButton(x, y, w, h, text) {
   ctx.fillText(text, x + (w - textWidth)/2, y + h/2 + 6);
 }
 
-// ----------------- Musica -----------------
+// Música 
 function drawMusicMenuButton() {
   const x = 230;
   const y = 380;
@@ -364,7 +365,7 @@ function drawMusicMenuButton() {
   ctx.fillText(text, x + (w - textWidth)/2, y + h/2 + 6);
 }
 
-// ----------------- Jugador  -----------------
+// Jugador  
 class Player {
   constructor(x,y) {
     this.x = x;
@@ -390,7 +391,7 @@ class Player {
   }
 }
 
-// ----------Platos -----//
+// Platos
 class FallingObject {
   constructor(){
     this.w = 40;
@@ -411,3 +412,4 @@ class FallingObject {
     else ctx.fillStyle="red", ctx.fillRect(this.x,this.y,this.w,this.h);
   }
 }
+
